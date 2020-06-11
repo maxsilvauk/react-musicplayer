@@ -1,0 +1,14 @@
+node_modules/
+.storage/
+build/
+.env
+.env*
+logs
+*.log
+yarn-debug.log*
+yarn-error.log*
+dist/
+.cache/
+
+.DS_Store
+.idea/

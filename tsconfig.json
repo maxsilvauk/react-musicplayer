@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "outDir": "build",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es2019",
+    "jsx": "react",
+    "lib": ["ES6", "ES7", "DOM", "ESNext"],
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "~root/*": ["src/*"],
+      "~components/*": ["src/components/*"],
+      "~components": ["src/components"],
+      "~pages/*": ["src/pages/*"],
+      "~helpers/*": ["src/helpers/*"],
+      "~images/*": ["src/assets/images/*"],
+      "~styles/*": ["src/styles/*"],
+      "~store/*": ["src/store/*"],
+      "~api/*": ["src/api/*"],
+      "~config/*": ["src/config/*"],
+    },
+    "plugins": [{
+      "name": "typescript-styled-plugin"
+    }]
+  },
+  "exclude": ["node_modules"],
+}
