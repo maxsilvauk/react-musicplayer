@@ -48,39 +48,40 @@ export const ChildrenDiv = styled.div`
 
   a {
     color: ${({ theme }) => theme.palette.primaryGreen};
+    text-decoration: none;
 
     &:hover {
       color: ${({ theme }) => theme.palette.primaryGreen};
       text-decoration: underline;
     }
-    
+
     &.active {
       color: ${({ theme }) => theme.palette.primaryGreen};
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
 `;
 
 export const LinksDiv = styled.div`
-         position: absolute;
-         bottom: 1rem;
-         padding: 0 1rem;
-         width: 100%;
-         text-align: center;
+  position: absolute;
+  bottom: 1rem;
+  padding: 0 1rem;
+  width: 100%;
+  text-align: center;
 
-         a {
-           display: block;
-           margin: 0.5rem 0;
-           background: ${({ theme }) => theme.palette.darkGrey};
-           color: white;
-           text-transform: uppercase;
-           font-size: 1.2rem;
-           border-right-width: 7px;
-           border-right: solid;
-           border-right-color: ${({ theme }) => theme.palette.primaryGreen};
+  a {
+    display: block;
+    margin: 0.5rem 0;
+    background: ${({ theme }) => theme.palette.darkGrey};
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    border-right-width: 7px;
+    border-right: solid;
+    border-right-color: ${({ theme }) => theme.palette.primaryGreen};
 
-           &.active {
-             border-right-color: ${({ theme }) => theme.palette.primaryGreen};
-           }
-         }
-       `;
+    &.active {
+      border-right-color: ${({ theme }) => theme.palette.primaryGreen};
+    }
+  }
+`;
