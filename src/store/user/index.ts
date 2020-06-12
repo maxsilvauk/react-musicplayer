@@ -1,4 +1,3 @@
-import Auth from '@aws-amplify/auth';
 import { thunk, action, computed, persist } from 'easy-peasy';
 import { UserModel } from "~store/user/types";
 import { cognitoUserAttrToStore } from "~store/user/utilities";
@@ -18,7 +17,6 @@ export const userModel: UserModel = persist({
 
   checkAuth: thunk(async actions => {
     try {
-      await Auth.currentSession();
     } catch (error) {
       actions.setUserModel({ user: null });
     }
@@ -29,9 +27,8 @@ export const userModel: UserModel = persist({
     const { email: username, password, onSuccess } = payload;
 
     try {
-      const cognitoUser = await Auth.signIn({ username, password });
       actions.setUserModel({
-        user: cognitoUserAttrToStore(cognitoUser.attributes),
+        user: cognitoUserAttrToStore(null),
         loading: false,
         error: null
       });
@@ -45,7 +42,6 @@ export const userModel: UserModel = persist({
     actions.setUserModel({ loading: true });
 
     try {
-      await Auth.signOut({ global: true });
       actions.setUserModel({ user: null, loading: false, error: null });
     } catch (error) {
       actions.setUserModel({ error: error.message, loading: false });
