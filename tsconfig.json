@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "outDir": "build",
+    "strict": true,
+    "allowJs": true,
+    "skipLibCheck": false,
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
@@ -8,8 +11,15 @@
     "target": "es2019",
     "jsx": "react",
     "lib": ["ES6", "ES7", "DOM", "ESNext"],
+    "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noEmit": false,
     "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+    "strictNullChecks": false,
     "baseUrl": ".",
     "paths": {
       "~root/*": ["src/*"],
