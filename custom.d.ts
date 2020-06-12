@@ -17,9 +17,7 @@ declare module "*.scss" {
 declare var process: {
   env: {
     API_URL: string;
-    IDENTITY_POOL_ID: string;
     APP_CLIENT_ID: string;
-    USER_POOL_ID: string;
     NODE_ENV: string;
   }
 }
