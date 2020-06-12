@@ -5,9 +5,8 @@ import Logo from "~images/spotify-logo-lg.svg";
 export const StyledLogo = styled(Logo)`
   width: 9rem;
   height: 3rem;
-  margin-top: 0.2rem;
-  margin-right: 3rem;
-  margin: 1rem;
+  margin-top: 1.6rem;
+  margin-left: 1.6rem;
 `;
 
 export const StyledSideNav = styled(Nav)`
