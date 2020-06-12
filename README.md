@@ -1,4 +1,4 @@
-<h1 align="center">ReactJS TMDB App</h1>
+<h1 align="center">React Spotify Player</h1>
 <br>
 <p align="center">
   <a href="https://gitpoint.co/">
