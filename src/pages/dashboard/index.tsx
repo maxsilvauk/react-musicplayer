@@ -11,8 +11,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <Container id="page-container">
-      <Row>
-      </Row>
+      <Row></Row>
     </Container>
   );
 };

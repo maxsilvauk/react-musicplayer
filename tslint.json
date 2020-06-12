@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "../../tslint.base.json",
-    "tslint-react-hooks"
-  ],
+  "extends": ["tslint-react-hooks"],
   "rules": {
     "react-hooks-nesting": "error"
   }

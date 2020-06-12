@@ -13,15 +13,16 @@
     "baseUrl": ".",
     "paths": {
       "~root/*": ["src/*"],
-      "~components/*": ["src/components/*"],
-      "~components": ["src/components"],
-      "~pages/*": ["src/pages/*"],
-      "~helpers/*": ["src/helpers/*"],
-      "~images/*": ["src/assets/images/*"],
-      "~styles/*": ["src/styles/*"],
-      "~store/*": ["src/store/*"],
       "~api/*": ["src/api/*"],
       "~config/*": ["src/config/*"],
+      "~components/*": ["src/components/*"],
+      "~components": ["src/components"],
+      "~images/*": ["src/assets/images/*"],
+      "~pages/*": ["src/pages/*"],
+      "~styles/*": ["src/styles/*"],
+      "~store/*": ["src/store/*"],
+      "~routes/*": ["src/routes/*"],
+      "~utilities/*": ["src/utilities/*"],
     },
     "plugins": [{
       "name": "typescript-styled-plugin"
