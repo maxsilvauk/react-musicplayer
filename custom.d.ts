@@ -16,8 +16,11 @@ declare module "*.scss" {
 
 declare var process: {
   env: {
-    API_URL: string;
-    APP_CLIENT_ID: string;
+    FRONTEND_URI: string;
+    REDIRECT_URI: string;
+    SPOTIFY_CLIENT_ID: string;
+    SPOTIFY_CLIENT_SECRET: string;
+    PORT: string;
     NODE_ENV: string;
-  }
-}
+  };
+};
