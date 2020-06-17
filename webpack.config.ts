@@ -26,7 +26,7 @@ const config: webpack.Configuration = {
       ? '[name].[contenthash].js'
       : '[name].[fullhash].js',
     path: outPath,
-    publicPath: '/',
+    publicPath: '',
   },
   target: 'web',
   resolve: {
