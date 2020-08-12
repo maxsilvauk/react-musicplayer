@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { Form, Row } from 'react-bootstrap';
-import Eye from '~images/eye-gr.svg';
 
 export const StyledRow = styled(Row)`
   margin-top: 7rem;
@@ -17,24 +16,6 @@ export const LogoWrapperDiv = styled.div`
   }
 `;
 
-export const StyledEye = styled(Eye)`
-  --activeFilter: invert(0.5) sepia(1) hue-rotate(600deg) saturate(20) brightness(1);
-
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-top: -0.2rem;
-  float: right;
-  cursor: pointer;
-
-  &:hover {
-    filter: invert(0.5) sepia(1) hue-rotate(600deg) saturate(20) brightness(.9);
-  }
-
-  ${({ active }) => active && css`
-    filter: invert(0.5) sepia(1) hue-rotate(600deg) saturate(20) brightness(1) !important;
-  `}
-`;
-
 export const StyledForm = styled(Form)`
   --formWidth: 45rem;
 
@@ -42,7 +23,7 @@ export const StyledForm = styled(Form)`
   padding: 1rem 2rem 2rem;
   color: ${({ theme }) => theme.palette.textColor};
   background: white;
-  box-shadow: 0px 0px 55px -10px rgba(0,0,0,0.35);
+  box-shadow: 0px 0px 55px -10px rgba(0, 0, 0, 0.35);
 
   label {
     display: inline-block;
@@ -52,7 +33,7 @@ export const StyledForm = styled(Form)`
     margin-bottom: 0.5rem;
 
     .form-label {
-      font-family: MrEavesXLModOTBold;
+      font-family: ;
       text-transform: uppercase;
       margin: 0;
       color: ${({ theme }) => theme.palette.textGrey};

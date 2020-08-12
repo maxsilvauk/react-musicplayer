@@ -3,13 +3,17 @@ import { SideNavTitle, SideNavSubTitle } from './styles';
 
 export const sideNavChildren = {
   login() {
+    const authLink = `${process.env.BACKEND_URI}/login`;
+
     return (
       <>
         <SideNavTitle>login</SideNavTitle>
         <SideNavSubTitle>Note</SideNavSubTitle>
-        <p>Please allow access us access to your spotify data.</p>
-        <p>By following the instructions in the popup page.</p>
-        <p>Doucmentation can be found <a href="/">here</a></p>
+        <p>Please allow this application access to your spotify data.</p>
+        <p>
+          <a href={authLink}>click here</a> to proceed to the spotify
+          authorisation page.
+        </p>
       </>
     );
   },

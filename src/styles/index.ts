@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { GlobalFonts } from '~styles/fonts/index';
+import { rem } from 'polished';
 
 export const GlobalStyles = createGlobalStyle`
   ${GlobalFonts}
@@ -9,8 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     background: ${({ theme }) => theme.palette.bodyBgColor};
     font-size: ${({ theme }) => theme.metrics.fontSize};
-    font-family: MrEavesXLModOTReg;
-    letter-spacing: 0.06rem;
+    font-family: CircularStdMedium;
 
     textarea:focus,
     textarea.form-control:focus,
@@ -33,8 +33,9 @@ export const GlobalStyles = createGlobalStyle`
       margin: 0;
       max-width: none;
       padding-right: 0;
-      padding-left: min(350px, ${({ theme }) => theme.metrics.sideNavWidth});
-      padding-top: ${({ theme: { metrics } }) => `calc(${metrics.headerOverlayHeight} + ${metrics.headerHeight})`};
+      padding-left: min(${rem('350px')}, ${({ theme }) => theme.metrics.sideNavWidth});
+      padding-top: ${({ theme: { metrics } }) =>
+        `calc(${metrics.headerOverlayHeight} + ${metrics.headerHeight})`};
 
       .row {
         margin-right: 0;
@@ -43,9 +44,10 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     a {
+      text-decoration: none !important;
+      
       &:hover {
         color: ${({ theme }) => theme.palette.secondaryBlue};
-        text-decoration: none;
       }
       &.disabled {
         cursor: none;

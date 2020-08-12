@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { rem } from 'polished';
 import { Nav } from 'react-bootstrap';
-import Logo from "~images/spotify-logo-lg.svg";
+import Logo from '~images/spotify-logo-lg.svg';
 
 export const StyledLogo = styled(Logo)`
   width: 9rem;
@@ -10,15 +11,14 @@ export const StyledLogo = styled(Logo)`
 `;
 
 export const StyledSideNav = styled(Nav)`
-  text-transform: uppercase;
-  color: ${props => props.theme.palette.darkGrey};
-  background: ${props => props.theme.palette.sideNavBgColor};
+  color: ${(props) => props.theme.palette.darkGrey};
+  background: ${(props) => props.theme.palette.sideNavBgColor};
   height: 100vh;
   width: ${({ theme }) => theme.metrics.sideNavWidth};
-  max-width: 350px;
+  max-width: ${rem('350px')};
   position: fixed;
   left: 0;
-  box-shadow: -10px 0px 40px 0px rgba(0,0,0,0.35);
+  box-shadow: ${rem('-10px')} 0px ${rem('40px')} 0px rgba(0, 0, 0, 0.35);
   padding-top: ${({ theme }) => theme.metrics.headerHeight};
   z-index: 100;
 `;
@@ -33,7 +33,6 @@ export const TitleDiv = styled.div`
 
   p {
     color: white;
-    text-transform: uppercase;
     margin: 0;
   }
 `;
