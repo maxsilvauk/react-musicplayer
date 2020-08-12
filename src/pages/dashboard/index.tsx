@@ -7,7 +7,7 @@ const Dashboard: React.FC = () => {
   const { setSideNavModel } = useStoreActions(({ sideNav }) => sideNav);
 
   const authCheck = () => {
-    let parsed = queryString.parse(window.location.search);
+    const parsed = queryString.parse(window.location.search);
     console.log(parsed);
   };
 

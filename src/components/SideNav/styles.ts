@@ -11,8 +11,8 @@ export const StyledLogo = styled(Logo)`
 `;
 
 export const StyledSideNav = styled(Nav)`
-  color: ${(props) => props.theme.palette.darkGrey};
-  background: ${(props) => props.theme.palette.sideNavBgColor};
+  color: ${props => props.theme.palette.darkGrey};
+  background: ${props => props.theme.palette.sideNavBgColor};
   height: 100vh;
   width: ${({ theme }) => theme.metrics.sideNavWidth};
   max-width: ${rem('350px')};

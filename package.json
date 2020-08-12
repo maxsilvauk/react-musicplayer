@@ -20,6 +20,12 @@
     "lint": "./node_modules/.bin/tslint --quiet --project tsconfig.json",
     "lint:fix": "./node_modules/.bin/tslint --fix --project tsconfig.json"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn lint"
+    }
+  },
   "dependencies": {
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
@@ -67,6 +73,7 @@
     "file-loader": "^6.0.0",
     "html-loader": "^1.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.2.5",
     "node-sass": "^4.14.0",
     "path": "^0.12.7",
     "polished": "^3.6.5",
@@ -76,6 +83,7 @@
     "ts-loader": "^6.2.2",
     "ts-node": "^8.8.1",
     "tslint": "^6.1.2",
+    "tslint-eslint-rules": "^5.4.0",
     "tslint-loader": "^3.5.4",
     "tslint-react-hooks": "^2.2.2",
     "uglifyjs-webpack-plugin": "^2.2.0",
