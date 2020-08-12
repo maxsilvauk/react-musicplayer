@@ -22,14 +22,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint",
-      "pre-push": "lint-staged"
-    },
-    "lint-staged": {
-      "**/*": [
-        "yarn lint:fix",
-        "yarn lint"
-      ]
+      "pre-commit": "yarn lint && yarn lint:fix"
     }
   },
   "dependencies": {
