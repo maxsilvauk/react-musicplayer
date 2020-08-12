@@ -8,7 +8,7 @@
 <p align="center">
     <img src="https://img.shields.io/badge/yarn-v1.19.1-green.svg" />
     <img src="https://img.shields.io/badge/node-v13.10.1-green.svg" />
-    <img src="https://img.shields.io/badge/react-v16.5.1-green.svg" />
+    <img src="https://img.shields.io/badge/react-v16.13.1-green.svg" />
 </p>
 
 ## Table of Contents
