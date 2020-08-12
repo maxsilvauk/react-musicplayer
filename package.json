@@ -23,7 +23,13 @@
   "husky": {
     "hooks": {
       "pre-commit": "yarn lint",
-      "pre-push": "yarn lint"
+      "pre-push": "lint-staged"
+    },
+    "lint-staged": {
+      "**/*": [
+        "yarn lint:fix",
+        "yarn lint"
+      ]
     }
   },
   "dependencies": {
@@ -74,6 +80,7 @@
     "html-loader": "^1.0.0",
     "html-webpack-plugin": "^4.3.0",
     "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "node-sass": "^4.14.0",
     "path": "^0.12.7",
     "polished": "^3.6.5",
