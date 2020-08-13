@@ -9,16 +9,19 @@ const Login: React.FC = () => {
   const history = useHistory();
   const { state } = useLocation<RedirectState>();
   const { isAuthenticated } = useStoreState(({ user }) => user);
-  const [{ setUserModel }, { setSideNavModel }] = useStoreActions(({ user, sideNav }) => [user, sideNav]);
+  const [
+    { setUserModel },
+    { setSideNavModel },
+  ] = useStoreActions(({ user, sideNav }) => [user, sideNav]);
 
-  React.useEffect(() => {
-    if (isAuthenticated)
-      history.replace(state?.from || '/');
-  }, [isAuthenticated]);
+  // React.useEffect(() => {
+  //   if (isAuthenticated)
+  //     history.replace(state?.from || '/');
+  // }, [isAuthenticated]);
 
   React.useEffect(() => {
     setSideNavModel({ title: 'login', activeChild: 'login' });
-    return () => setUserModel({ loading: false, error: null });
+    // return () => setUserModel({ loading: false, error: null });
   }, []);
 
   return (

@@ -16,7 +16,7 @@ export const SideNav: React.FC = () => {
         <ChildrenDiv>{sideNavChildren[activeChild]()}</ChildrenDiv>
       )}
       <LinksDiv>
-        {links.map((link) => (
+        {links.map(link => (
           <NavLink key={link.path} to={link.path}>
             {link.name}
           </NavLink>

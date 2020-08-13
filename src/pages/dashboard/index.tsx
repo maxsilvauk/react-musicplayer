@@ -13,7 +13,7 @@ const Dashboard: React.FC = () => {
 
   React.useEffect(() => {
     authCheck();
-    setSideNavModel({ title: 'dashboard2' });
+    setSideNavModel({ title: 'dashboard' });
   }, []);
 
   return (

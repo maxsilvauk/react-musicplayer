@@ -1,18 +1,11 @@
-import { Action, Thunk, Computed } from 'easy-peasy';
+import { Action, Computed } from 'easy-peasy';
 
 export interface User {
-  name: string;
-  username: string;
-  email: string;
+  access_token: string;
 }
 
 export interface UserModel {
-  loading: boolean;
-  error: string;
-  user: User;
+  access_token: string;
   isAuthenticated: Computed<UserModel, boolean>;
-  checkAuth: Thunk<UserModel>;
-  setUserModel: Action<UserModel, Partial<Pick<UserModel, 'user' | 'error' | 'loading'>>>;
-  login: Thunk<UserModel, { email: string, password: string, onSuccess: () => void }>;
-  logout: Thunk<UserModel>;
+  setUserModel: Action<UserModel, Pick<UserModel, 'access_token'>>;
 }

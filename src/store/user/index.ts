@@ -1,54 +1,23 @@
-import { thunk, action, computed, persist } from 'easy-peasy';
-import { UserModel } from "~store/user/types";
-import { cognitoUserAttrToStore } from "~store/user/utilities";
+import { action, persist, computed } from 'easy-peasy';
+import { UserModel } from '~store/user/types';
 
 export * from './types';
 
-export const userModel: UserModel = persist({
+const defaultState: Pick<UserModel, 'access_token'> = {
+  access_token: '',
+};
 
-  loading: false,
-  error: null,
-  user: null,
-  isAuthenticated: computed(({ user }) => user !== null),
+export const userModel: UserModel = persist(
+  {
+    access_token: '',
+    isAuthenticated: computed(({ access_token }) => access_token !== ''),
 
-  setUserModel: action((state, payload) => {
-    Object.assign(state, payload);
-  }),
-
-  checkAuth: thunk(async actions => {
-    try {
-    } catch (error) {
-      actions.setUserModel({ user: null });
-    }
-  }),
-
-  login: thunk(async (actions, payload) => {
-    actions.setUserModel({ loading: true });
-    const { email: username, password, onSuccess } = payload;
-
-    try {
-      actions.setUserModel({
-        user: cognitoUserAttrToStore(null),
-        loading: false,
-        error: null
-      });
-      onSuccess();
-    } catch (error) {
-      actions.setUserModel({ error: error.message, loading: false });
-    }
-  }),
-
-  logout: thunk(async actions => {
-    actions.setUserModel({ loading: true });
-
-    try {
-      actions.setUserModel({ user: null, loading: false, error: null });
-    } catch (error) {
-      actions.setUserModel({ error: error.message, loading: false });
-    }
-  })
-
-}, {
-  whitelist: ['user'],
-  storage: 'localStorage'
-});
+    setUserModel: action((state, payload) => {
+      Object.assign(state, { ...defaultState }, payload);
+    }),
+  },
+  {
+    whitelist: ['access_token'],
+    storage: 'localStorage',
+  }
+);
