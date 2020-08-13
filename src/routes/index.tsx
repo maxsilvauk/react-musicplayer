@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from '~components/Header';
 import { SideNav } from '~components/SideNav';
@@ -9,10 +9,6 @@ import { PrivateRoute } from '~root/routes/privateRoute';
 import { checkAuth } from '~store/user/utilites';
 
 export const Routes = () => {
-  React.useEffect(() => {
-    console.log('awdawd', checkAuth());
-  }, []);
-
   return (
     <Router>
       <NavBar />

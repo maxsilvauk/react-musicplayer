@@ -1,27 +1,27 @@
-import React from 'react';
+import React, { useEffect, memo } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Container, Col } from 'react-bootstrap';
 import { useStoreActions, useStoreState } from '~store/hooks';
 import { RedirectState } from '~root/routes/privateRoute';
 import { StyledRow } from './styles';
+import queryString from 'query-string';
 
 const Login: React.FC = () => {
   const history = useHistory();
   const { state } = useLocation<RedirectState>();
   const { isAuthenticated } = useStoreState(({ user }) => user);
-  const [
-    { setUserModel },
-    { setSideNavModel },
-  ] = useStoreActions(({ user, sideNav }) => [user, sideNav]);
+  const [{ setUserModel },{ setSideNavModel }] = useStoreActions(({ user, sideNav }) => [user, sideNav]);
 
-  // React.useEffect(() => {
-  //   if (isAuthenticated)
-  //     history.replace(state?.from || '/');
-  // }, [isAuthenticated]);
+  useEffect(() => {
+    if (isAuthenticated)
+      history.replace(state?.from || '/dashboard');
+  }, [isAuthenticated]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setSideNavModel({ title: 'login', activeChild: 'login' });
-    // return () => setUserModel({ loading: false, error: null });
+    const parsed = queryString.parse(window.location.search).access_token;
+    if (parsed !== undefined)
+      return () => setUserModel({ access_token: parsed, isAuthenticated: true });
   }, []);
 
   return (
@@ -33,4 +33,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default memo(Login);
