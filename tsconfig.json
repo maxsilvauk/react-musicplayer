@@ -32,6 +32,7 @@
       "~styles/*": ["src/styles/*"],
       "~store/*": ["src/store/*"],
       "~routes/*": ["src/routes/*"],
+      "~reducers/*": ["src/reducers/*"],
       "~utilities/*": ["src/utilities/*"],
     },
     "plugins": [{

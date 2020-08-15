@@ -42,7 +42,7 @@
     "arrow-parens": false,
     "newline-per-chained-call": false,
     "object-curly-spacing": [true, "always"],
-    "semicolon": [true, "always"],
+    "semicolon": false,
     "ter-indent": [
       true,
       2,

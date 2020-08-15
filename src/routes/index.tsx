@@ -4,9 +4,7 @@ import NavBar from '~components/Header';
 import { SideNav } from '~components/SideNav';
 import Login from '~pages/login';
 import Dashboard from '~pages/dashboard';
-import { useStoreActions } from '~root/store/hooks';
 import { PrivateRoute } from '~root/routes/privateRoute';
-import { checkAuth } from '~store/user/utilites';
 
 export const Routes = () => {
   return (

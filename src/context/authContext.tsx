@@ -1,29 +1,15 @@
-import React, { createContext } from 'react';
-import AuthService from '../../services/authServices';
+import React, { createContext, useReducer } from 'react'
+import authReducer, { authInitialState } from '~reducers/authReducer'
+import { IAuthContext, IAuthProvider } from './types'
 
-export const AuthContext = createContext({
-  addUserSignedOut: () => ({}),
-  removeUserSignedOut: () => ({}),
-  signinRedirectCallback: () => ({}),
-  logout: () => ({}),
-  signoutRedirectCallback: () => ({}),
-  logOut: () => ({}),
-  isAuthenticated: () => ({}),
-  signinRedirect: () => ({}),
-  signinSilentCallback: () => ({}),
-  createSigninRequest: () => ({}),
-  navigateToScreen: () => ({}),
-  setBearerAPIToken: accessToken => ({}),
-  getUser: () => ({}),
-});
+export const AuthContext = createContext(undefined)
 
-export const AuthProvider = props => {
-  const authService = new AuthService();
+export const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
+  const authData = useReducer(authReducer, authInitialState)
+
   return (
-    <AuthContext.Provider value={authService}>
-      {props.children}
-    </AuthContext.Provider>
-  );
-};
+    <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>
+  )
+}
 
-export const AuthConsumer = AuthContext.Consumer;
+export const AuthConsumer = AuthContext.Consumer
