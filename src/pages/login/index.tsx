@@ -1,28 +1,27 @@
-import React, { useEffect, memo } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
-import { Container, Col } from 'react-bootstrap';
-import { useStoreActions, useStoreState } from '~store/hooks';
-import { RedirectState } from '~root/routes/privateRoute';
-import { StyledRow } from './styles';
-import queryString from 'query-string';
+import React, { FC, useEffect, memo } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
+import { Container, Col } from 'react-bootstrap'
+import { useStoreActions, useStoreState } from '~store/hooks'
+import { RedirectState } from '~root/routes/privateRoute'
+import { StyledRow } from './styles'
+import queryString from 'query-string'
+import { AuthConsumer } from '~context/authContext'
 
-const Login: React.FC = () => {
-  const history = useHistory();
-  const { state } = useLocation<RedirectState>();
-  const { isAuthenticated } = useStoreState(({ user }) => user);
-  const [{ setUserModel },{ setSideNavModel }] = useStoreActions(({ user, sideNav }) => [user, sideNav]);
+const Login: FC = () => {
+  const history = useHistory()
+  const { state } = useLocation<RedirectState>()
+  const { isAuthenticated } = useStoreState(({ user }) => user)
+  const [{ setUserModel }, { setSideNavModel }] = useStoreActions(({ user, sideNav }) => [user, sideNav])
+
+  // useEffect(() => {
+  //   if (isAuthenticated) history.replace(state?.from || '/dashboard')
+  // }, [isAuthenticated])
 
   useEffect(() => {
-    if (isAuthenticated)
-      history.replace(state?.from || '/dashboard');
-  }, [isAuthenticated]);
-
-  useEffect(() => {
-    setSideNavModel({ title: 'login', activeChild: 'login' });
-    const parsed = queryString.parse(window.location.search).access_token;
-    if (parsed !== undefined)
-      return () => setUserModel({ access_token: parsed, isAuthenticated: true });
-  }, []);
+    setSideNavModel({ title: 'login', activeChild: 'login' })
+    // const parsed = queryString.parse(window.location.search).access_token
+    // if (parsed !== undefined) return () => setUserModel({ access_token: parsed, isAuthenticated: true })
+  }, [])
 
   return (
     <Container id="page-container">
@@ -30,7 +29,7 @@ const Login: React.FC = () => {
         <Col md="auto"></Col>
       </StyledRow>
     </Container>
-  );
-};
+  )
+}
 
-export default memo(Login);
+export default memo(Login)

@@ -1,6 +1,15 @@
-export interface IState {
+interface IAuthInitialState {
   accessToken: string | null
-  isAuthenticated: boolean
+  isAuthed: boolean
+  error: boolean
+  setAuthedData: (data: object) => void
+}
+
+interface IState {
+  accessToken: string | null
+  isAuthed: boolean
+  error: boolean
+  setAuthedData: (data: object) => void
 }
 
 interface IReducerAction {
@@ -8,3 +17,5 @@ interface IReducerAction {
   payload?: any
   authData: any
 }
+
+export { IAuthInitialState, IState, IReducerAction }

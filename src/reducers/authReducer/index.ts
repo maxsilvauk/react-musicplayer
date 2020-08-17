@@ -1,24 +1,19 @@
-import { loadingState } from '~root/globals'
-import { IState, IReducerAction } from './types'
+import { IAuthInitialState, IState, IReducerAction } from './types'
 import { actions } from './actions'
 
-export const authInitialState = {
-  mode: loadingState.IDLE,
-  auth: false,
-  error: false,
-}
-
-const initialState: IState = {
+export const authInitialState: IAuthInitialState = {
   accessToken: null,
-  isAuthenticated: false,
+  isAuthed: false,
+  error: false,
+  setAuthedData: () => null,
 }
 
-const authReducer = (state: IState = initialState, action: IReducerAction) => {
+const authReducer = (state: IState, action: IReducerAction) => {
   switch (action.type) {
     case actions.SET_ACCESS_TOKEN:
       return {
         ...state,
-        ...action.authData,
+        ...action.payload,
       }
     case actions.RESET_ACCESS_TOKEN:
       return {

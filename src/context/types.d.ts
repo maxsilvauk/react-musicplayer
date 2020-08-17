@@ -1,11 +1,17 @@
-// export type TSetAccessTokenType = (token: string) => void
-
-export interface IAuthContext {
+interface IAuthContext {
   accessToken: string | null
   isAuthenticated: boolean
-  // setAccessToken: TSetAccessTokenType
 }
 
-export interface IAuthProvider {
-  children: JSX.Element
+type TState = {
+  accessToken: string | null
+  isAuthed: boolean
+  error: boolean
+  setAuthedData: (data: object) => void
 }
+
+interface IAuthProvider {
+  children: any
+}
+
+export { IAuthContext, TState, IAuthProvider }

@@ -1,26 +1,25 @@
-import React from 'react';
-import queryString from 'query-string';
-import { Container, Row } from 'react-bootstrap';
-import { useStoreActions } from '~store/hooks';
+import React from 'react'
+import queryString from 'query-string'
+import { Container, Row } from 'react-bootstrap'
+import { useStoreActions } from '~store/hooks'
 
 const Dashboard: React.FC = () => {
-  const { setSideNavModel } = useStoreActions(({ sideNav }) => sideNav);
+  const { setSideNavModel } = useStoreActions(({ sideNav }) => sideNav)
 
   const authCheck = () => {
-    const parsed = queryString.parse(window.location.search);
-    console.log(parsed);
-  };
+    // Get token from store / context
+  }
 
   React.useEffect(() => {
-    authCheck();
-    setSideNavModel({ title: 'dashboard' });
-  }, []);
+    authCheck()
+    setSideNavModel({ title: 'dashboard' })
+  }, [])
 
   return (
     <Container id="page-container">
       <Row></Row>
     </Container>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

@@ -1,15 +1,13 @@
-import React, { createContext, useReducer } from 'react'
+import React, { FC, createContext, useReducer } from 'react'
 import authReducer, { authInitialState } from '~reducers/authReducer'
-import { IAuthContext, IAuthProvider } from './types'
+import { TState, IAuthProvider } from './types'
 
-export const AuthContext = createContext(undefined)
+export const AuthContext = createContext<[TState, React.Dispatch<any>]>(undefined)
 
-export const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
+export const AuthProvider: FC<IAuthProvider> = props => {
   const authData = useReducer(authReducer, authInitialState)
 
-  return (
-    <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>
-  )
+  return <AuthContext.Provider value={authData}>{props.children}</AuthContext.Provider>
 }
 
 export const AuthConsumer = AuthContext.Consumer

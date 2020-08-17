@@ -1,18 +1,18 @@
-import webpack from 'webpack';
-import path from 'path';
-import dotenv from 'dotenv';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import { TsConfigPathsPlugin } from 'awesome-typescript-loader';
+import webpack from 'webpack'
+import path from 'path'
+import dotenv from 'dotenv'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { CleanWebpackPlugin } from 'clean-webpack-plugin'
+import { TsConfigPathsPlugin } from 'awesome-typescript-loader'
 
-require('dotenv').config();
+require('dotenv').config()
 
-const packageJson = require('./package.json');
+const packageJson = require('./package.json')
 
-const env = dotenv.config().parsed;
-const isProduction = process.env.NODE_ENV === 'production';
-const sourcePath = path.join(__dirname, './src');
-const outPath = path.join(__dirname, './build');
+const env = dotenv.config().parsed
+const isProduction = process.env.NODE_ENV === 'production'
+const sourcePath = path.join(__dirname, './src')
+const outPath = path.join(__dirname, './build')
 
 const config: webpack.Configuration = {
   performance: {
@@ -34,12 +34,12 @@ const config: webpack.Configuration = {
     plugins: [new TsConfigPathsPlugin()],
     alias: {
       'react-dom': '@hot-loader/react-dom',
-    }
+    },
   },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /(?<!\.d)\.tsx?$/,
         use: [
           !isProduction && {
             loader: 'babel-loader',
@@ -66,7 +66,7 @@ const config: webpack.Configuration = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': JSON.stringify(env)
+      'process.env': JSON.stringify(env),
     }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -98,8 +98,8 @@ const config: webpack.Configuration = {
     publicPath: '/',
     stats: 'minimal',
     clientLogLevel: 'warning',
-    hot: true
+    hot: true,
   },
-};
+}
 
-export default config;
+export default config

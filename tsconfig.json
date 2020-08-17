@@ -27,6 +27,7 @@
       "~config/*": ["src/config/*"],
       "~components/*": ["src/components/*"],
       "~components": ["src/components"],
+      "~context/*": ["src/context/*"],
       "~images/*": ["src/assets/images/*"],
       "~pages/*": ["src/pages/*"],
       "~styles/*": ["src/styles/*"],
