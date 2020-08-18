@@ -7,7 +7,6 @@ type TState = {
   accessToken: string | null
   isAuthed: boolean
   error: boolean
-  setAuthedData: (data: object) => void
 }
 
 interface IAuthProvider {

@@ -6,12 +6,7 @@ import { useStoreActions } from '~store/hooks'
 const Dashboard: React.FC = () => {
   const { setSideNavModel } = useStoreActions(({ sideNav }) => sideNav)
 
-  const authCheck = () => {
-    // Get token from store / context
-  }
-
   React.useEffect(() => {
-    authCheck()
     setSideNavModel({ title: 'dashboard' })
   }, [])
 

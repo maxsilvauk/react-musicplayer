@@ -5,7 +5,6 @@ export const authInitialState: IAuthInitialState = {
   accessToken: null,
   isAuthed: false,
   error: false,
-  setAuthedData: () => null,
 }
 
 const authReducer = (state: IState, action: IReducerAction) => {

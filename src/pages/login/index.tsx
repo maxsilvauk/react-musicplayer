@@ -1,11 +1,10 @@
-import React, { FC, useEffect, memo } from 'react'
+import React, { FC, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { Container, Col } from 'react-bootstrap'
 import { useStoreActions, useStoreState } from '~store/hooks'
+import queryString from 'query-string'
 import { RedirectState } from '~root/routes/privateRoute'
 import { StyledRow } from './styles'
-import queryString from 'query-string'
-import { AuthConsumer } from '~context/authContext'
 
 const Login: FC = () => {
   const history = useHistory()
@@ -13,15 +12,18 @@ const Login: FC = () => {
   const { isAuthenticated } = useStoreState(({ user }) => user)
   const [{ setUserModel }, { setSideNavModel }] = useStoreActions(({ user, sideNav }) => [user, sideNav])
 
-  // useEffect(() => {
-  //   if (isAuthenticated) history.replace(state?.from || '/dashboard')
-  // }, [isAuthenticated])
-
   useEffect(() => {
     setSideNavModel({ title: 'login', activeChild: 'login' })
-    // const parsed = queryString.parse(window.location.search).access_token
-    // if (parsed !== undefined) return () => setUserModel({ access_token: parsed, isAuthenticated: true })
+    const parsed = queryString.parse(window.location.search).access_token
+    console.log(parsed)
+    if (parsed !== undefined) {
+      return () => setUserModel({ access_token: parsed, isAuthenticated: true })
+    }
   }, [])
+
+  useEffect(() => {
+    if (isAuthenticated) history.replace(state?.from || '/dashboard')
+  }, [isAuthenticated])
 
   return (
     <Container id="page-container">
@@ -32,4 +34,4 @@ const Login: FC = () => {
   )
 }
 
-export default memo(Login)
+export default Login

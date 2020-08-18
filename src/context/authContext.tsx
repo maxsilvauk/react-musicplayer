@@ -6,7 +6,6 @@ export const AuthContext = createContext<[TState, React.Dispatch<any>]>(undefine
 
 export const AuthProvider: FC<IAuthProvider> = props => {
   const authData = useReducer(authReducer, authInitialState)
-
   return <AuthContext.Provider value={authData}>{props.children}</AuthContext.Provider>
 }
 

@@ -1,9 +1,9 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Nav, Container } from 'react-bootstrap';
-import { StyledNavBar } from './styles';
+import React, { FC } from 'react'
+import { NavLink } from 'react-router-dom'
+import { Nav, Container } from 'react-bootstrap'
+import { StyledNavBar } from './styles'
 
-const NavBar: React.FC = () => {
+const NavBar: FC = () => {
   return (
     <StyledNavBar>
       <Container id="main-links">
@@ -16,7 +16,7 @@ const NavBar: React.FC = () => {
         </Nav>
       </Container>
     </StyledNavBar>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
