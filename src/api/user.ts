@@ -1,10 +1,10 @@
 import { instance } from '~api/index'
 import { AxiosInstance } from 'axios'
 
-class Api {
+class UserApi {
   constructor(private axios: AxiosInstance) {}
 
-  async getUserData() {
+  async getUserInfo() {
     const response = await this.axios.get('/me')
     return response.data.response
   }
@@ -15,4 +15,4 @@ class Api {
   }
 }
 
-export const userApi = new Api(instance)
+export const userApi = new UserApi(instance)

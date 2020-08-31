@@ -8,7 +8,7 @@ const Dashboard: React.FC = () => {
 
   React.useEffect(() => {
     setSideNavModel({ title: 'dashboard' })
-    console.log('getUserData', userApi.getUserData())
+    console.log('getUserInfo', userApi.getUserInfo())
   }, [])
 
   return (

@@ -5,13 +5,11 @@ const getAccessToken = () => {
   return auth ? auth.accessToken : null
 }
 
-const token = getAccessToken()
-
 const config: AxiosRequestConfig = {
   baseURL: process.env.API_URL,
   responseType: 'json',
   headers: {
-    Authorization: `Bearer ${token}`,
+    Authorization: `Bearer ${getAccessToken()}`,
   },
 }
 
