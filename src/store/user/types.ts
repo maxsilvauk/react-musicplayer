@@ -1,14 +1,14 @@
-import { Action } from 'easy-peasy'
+import { Action, Computed } from 'easy-peasy'
 
 export interface User {
   name: string
   email: string
-  isAuthenticated: boolean;
 }
 
 export interface UserModel {
-  name: string
-  email: string
-  isAuthenticated: boolean;
+  loading: boolean
+  error: string
+  user: User | null
+  isAuthenticated: Computed<UserModel, boolean>
   setUserModel: Action<UserModel, User>
 }
