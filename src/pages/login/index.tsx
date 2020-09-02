@@ -5,6 +5,7 @@ import { useStoreActions, useStoreState } from '~store/hooks'
 import queryString from 'query-string'
 import { RedirectState } from '~root/routes/privateRoute'
 import { StyledRow } from './styles'
+import { userApi } from '~api/user'
 
 const Login: FC = () => {
   const history = useHistory()
@@ -27,7 +28,9 @@ const Login: FC = () => {
 
     if (token !== undefined) {
       localStorage.setItem('auth', JSON.stringify(authData))
-      setUserModel({ access_token: token, isAuthenticated: true })
+
+      setUserModel({ name: 'name', email: 'email', isAuthenticated: true })
+
       history.replace(state?.from || '/dashboard')
     }
   }, [])

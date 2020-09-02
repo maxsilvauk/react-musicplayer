@@ -1,23 +1,25 @@
-import { action, persist, computed } from 'easy-peasy';
-import { UserModel } from '~store/user/types';
+import { action, persist } from 'easy-peasy'
+import { User, UserModel } from '~store/user/types'
 
-export * from './types';
+export * from './types'
 
-const defaultState: Pick<UserModel, 'access_token'> = {
-  access_token: '',
-};
+const defaultState: User = {
+  name: '',
+  email: '',
+  isAuthenticated: false,
+}
 
 export const userModel: UserModel = persist(
   {
-    access_token: '',
-    isAuthenticated: computed(({ access_token }) => access_token !== ''),
+    name: '',
+    email: '',
+    isAuthenticated: false,
 
     setUserModel: action((state, payload) => {
-      Object.assign(state, { ...defaultState }, payload);
+      Object.assign(state, { ...defaultState }, payload)
     }),
   },
   {
-    whitelist: ['access_token'],
     storage: 'localStorage',
-  }
-);
+  },
+)
