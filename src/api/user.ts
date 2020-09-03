@@ -6,12 +6,12 @@ class UserApi {
 
   async getUserInfo() {
     const response = await this.axios.get('/me')
-    return response.data.response
+    return response.data
   }
 
   async getUserPlaylists() {
     const response = await this.axios.get('/playlists')
-    return response.data.response
+    return response.data
   }
 }
 

@@ -1,14 +1,44 @@
-import { Action, Computed } from 'easy-peasy'
+import { Action, Computed, Thunk } from 'easy-peasy'
 
-export interface User {
-  name: string
-  email: string
+export interface ExplicitContent {
+  filter_enabled: boolean
+  filter_lockedc: boolean
 }
 
+export interface ExternalUrls {
+  spotify: string
+}
+
+export interface Followers {
+  href: string | null
+  total: number
+}
+
+export interface User {
+  country: string
+  display_name: string
+  email: string
+  explicit_content: ExplicitContent
+  external_urls: ExternalUrls
+  followers: Followers
+  href: string
+  id: string
+  images: []
+  product: string
+  type: string
+  uri: string
+}
+
+export interface Auth {
+  accessToken: string
+  timestamp: string
+}
 export interface UserModel {
   loading: boolean
   error: string
   user: User | null
+  auth: Auth | null
   isAuthenticated: Computed<UserModel, boolean>
-  setUserModel: Action<UserModel, User>
+  setUserModel: Action<UserModel, Partial<Pick<UserModel, 'loading' | 'error' | 'user' | 'auth'>>>
+  fetchUserInfo: Thunk<UserModel, any | Auth>
 }
