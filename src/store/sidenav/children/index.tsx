@@ -1,22 +1,21 @@
-import React from 'react';
-import { SideNavTitle, SideNavSubTitle } from './styles';
+import React from 'react'
+import { SideNavTitle, SideNavSubTitle } from './styles'
 
 export const sideNavChildren = {
   login() {
-    const authLink = `${process.env.BACKEND_URI}/login`;
+    const authLink = `${process.env.BACKEND_URI}/login`
     return (
       <>
         <SideNavTitle>login</SideNavTitle>
         <SideNavSubTitle>Note</SideNavSubTitle>
         <p>Please allow this application access to your spotify data.</p>
         <p>
-          <a href={authLink}>click here</a> to proceed to the spotify
-          authorisation page.
+          <a href={authLink}>click here</a> to proceed to the spotify authorisation page.
         </p>
       </>
-    );
+    )
   },
-  authed() {
+  dashboard() {
     return (
       <>
         <SideNavSubTitle>Your Library</SideNavSubTitle>
@@ -24,6 +23,6 @@ export const sideNavChildren = {
         <SideNavSubTitle>Playlists</SideNavSubTitle>
         <p>Playlist One</p>
       </>
-    );
+    )
   },
-};
+}

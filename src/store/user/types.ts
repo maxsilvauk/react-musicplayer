@@ -29,16 +29,13 @@ export interface User {
   uri: string
 }
 
-export interface Auth {
-  accessToken: string
-  timestamp: string
-}
 export interface UserModel {
   loading: boolean
   error: string
-  user: User | null
-  auth: Auth | null
+  user?: User | null
+  playlists?: any | null
   isAuthenticated: Computed<UserModel, boolean>
-  setUserModel: Action<UserModel, Partial<Pick<UserModel, 'loading' | 'error' | 'user' | 'auth'>>>
-  fetchUserInfo: Thunk<UserModel, any | Auth>
+  setUserModel: Action<UserModel, Partial<Pick<UserModel, 'loading' | 'error' | 'user' | 'playlists'>>>
+  fetchUserInfo: Thunk<UserModel>
+  fetchUserPlaylists: Thunk<UserModel, number>
 }

@@ -43,6 +43,7 @@
     "newline-per-chained-call": false,
     "object-curly-spacing": [true, "always"],
     "semicolon": false,
+    "no-shadowed-variable": false,
     "ter-indent": [
       true,
       2,

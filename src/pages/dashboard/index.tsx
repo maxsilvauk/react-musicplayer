@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { FC, useEffect, useCallback } from 'react'
+import { useStoreState } from '~store/hooks'
 import { Container, Row } from 'react-bootstrap'
 import { useStoreActions } from '~store/hooks'
 // import { user } from '~api/user'
 
-const Dashboard: React.FC = () => {
-  const { setSideNavModel } = useStoreActions(({ sideNav }) => sideNav)
+const Dashboard: FC = () => {
+  const [{ fetchUserPlaylists }, { setSideNavModel }] = useStoreActions(({ user, sideNav }) => [user, sideNav])
+  const { user, playlists } = useStoreState(({ user }) => user)
 
-  React.useEffect(() => {
-    setSideNavModel({ title: 'dashboard' })
+  const fetchPlaylists = useCallback(async userId => {
+    await fetchUserPlaylists(userId)
+  }, [])
+
+  useEffect(() => {
+    fetchPlaylists(user.id)
+    console.log('userPlay', playlists)
+    setSideNavModel({ title: 'dashboard', activeChild: 'dashboard', playlists: {} })
   }, [])
 
   return (

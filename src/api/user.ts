@@ -9,8 +9,8 @@ class UserApi {
     return response.data
   }
 
-  async getUserPlaylists() {
-    const response = await this.axios.get('/playlists')
+  async getUserPlaylists(userId: any) {
+    const response = await this.axios.get(`/users/${userId}/playlists`)
     return response.data
   }
 }

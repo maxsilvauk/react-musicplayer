@@ -12,12 +12,12 @@ const Login: FC = () => {
   const { isAuthenticated } = useStoreState(({ user }) => user)
   const [{ fetchUserInfo }, { setSideNavModel }] = useStoreActions(({ user, sideNav }) => [user, sideNav])
 
-  const fetchUser = useCallback(async token => {
-    await fetchUserInfo(token)
+  const fetchUser = useCallback(async () => {
+    await fetchUserInfo()
   }, [])
 
   useEffect(() => {
-    //if (isAuthenticated) history.replace(state?.from || '/dashboard')
+    if (isAuthenticated) history.replace(state?.from || '/dashboard')
   }, [isAuthenticated])
 
   useEffect(() => {
@@ -29,8 +29,8 @@ const Login: FC = () => {
         timestamp: Date(),
       }
       localStorage.setItem('auth', JSON.stringify(authData))
-      fetchUser(authData)
-      //history.replace(state?.from || '/dashboard')
+      fetchUser()
+      history.replace(state?.from || '/dashboard')
     }
   }, [])
 
