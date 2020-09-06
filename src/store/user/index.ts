@@ -8,6 +8,7 @@ export const userModel: UserModel = persist(
     loading: false,
     error: null,
     user: null,
+    playlists: null,
     isAuthenticated: computed(({ user }) => user !== null),
 
     setUserModel: action((state, payload) => {

@@ -17,7 +17,8 @@ const Login: FC = () => {
   }, [])
 
   useEffect(() => {
-    if (isAuthenticated) history.replace(state?.from || '/dashboard')
+    if (isAuthenticated)
+      history.replace(state?.from || '/dashboard')
   }, [isAuthenticated])
 
   useEffect(() => {

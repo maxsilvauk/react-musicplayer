@@ -11,6 +11,7 @@ class UserApi {
 
   async getUserPlaylists(userId: any) {
     const response = await this.axios.get(`/users/${userId}/playlists`)
+    console.log('response', response)
     return response.data
   }
 }

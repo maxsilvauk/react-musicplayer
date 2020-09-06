@@ -3,7 +3,7 @@ import { SideNavModel } from './types'
 
 export * from './types'
 
-const defaultState: Pick<SideNavModel, 'playlists' | 'activeLink' | 'subTitle' | 'title' | 'activeChild'> = {
+const defaultState: Pick<SideNavModel, 'title' | 'subTitle' | 'playlists' | 'activeLink' | 'activeChild'> = {
   title: '',
   subTitle: '',
   playlists: {},

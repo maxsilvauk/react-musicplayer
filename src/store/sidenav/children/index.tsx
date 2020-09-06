@@ -18,10 +18,8 @@ export const sideNavChildren = {
   dashboard() {
     return (
       <>
-        <SideNavSubTitle>Your Library</SideNavSubTitle>
-        <p>Library One</p>
-        <SideNavSubTitle>Playlists</SideNavSubTitle>
-        <p>Playlist One</p>
+        <SideNavTitle>Hi, Max</SideNavTitle>
+        <SideNavSubTitle>Your Playlists</SideNavSubTitle>
       </>
     )
   },

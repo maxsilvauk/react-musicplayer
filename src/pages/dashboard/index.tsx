@@ -2,7 +2,6 @@ import React, { FC, useEffect, useCallback } from 'react'
 import { useStoreState } from '~store/hooks'
 import { Container, Row } from 'react-bootstrap'
 import { useStoreActions } from '~store/hooks'
-// import { user } from '~api/user'
 
 const Dashboard: FC = () => {
   const [{ fetchUserPlaylists }, { setSideNavModel }] = useStoreActions(({ user, sideNav }) => [user, sideNav])
@@ -14,9 +13,13 @@ const Dashboard: FC = () => {
 
   useEffect(() => {
     fetchPlaylists(user.id)
-    console.log('userPlay', playlists)
-    setSideNavModel({ title: 'dashboard', activeChild: 'dashboard', playlists: {} })
   }, [])
+
+  useEffect(() => {
+    console.log('playlists', playlists)
+    if (playlists)
+      setSideNavModel({ title: 'dashboard', activeChild: 'dashboard', playlists: playlists.items })
+  }, [playlists])
 
   return (
     <Container id="page-container">
