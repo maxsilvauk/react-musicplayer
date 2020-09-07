@@ -8,8 +8,6 @@ export const SideNav: FC = () => {
   const { playlists, activeChild } = useStoreState(({ sideNav }) => sideNav)
   const links: any = Object.entries(playlists)
 
-  console.log('activeChild', activeChild)
-
   return (
     <StyledSideNav defaultActiveKey="/" className="flex-column">
       <Link className="nav-link" to="/">

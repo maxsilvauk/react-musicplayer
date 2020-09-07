@@ -37,5 +37,5 @@ export interface UserModel {
   isAuthenticated: Computed<UserModel, boolean>
   setUserModel: Action<UserModel, Partial<Pick<UserModel, 'loading' | 'error' | 'user' | 'playlists'>>>
   fetchUserInfo: Thunk<UserModel>
-  fetchUserPlaylists: Thunk<UserModel, number>
+  fetchUserPlaylists: Thunk<UserModel, string | any | { limit?: number; offset?: number }>
 }

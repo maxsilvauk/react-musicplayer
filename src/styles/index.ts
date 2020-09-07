@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import { GlobalFonts } from '~styles/fonts/index';
-import { rem } from 'polished';
+import { createGlobalStyle } from 'styled-components'
+import { GlobalFonts } from '~styles/fonts/index'
+import { rem } from 'polished'
 
 export const GlobalStyles = createGlobalStyle`
   ${GlobalFonts}
@@ -34,8 +34,7 @@ export const GlobalStyles = createGlobalStyle`
       max-width: none;
       padding-right: 0;
       padding-left: min(${rem('350px')}, ${({ theme }) => theme.metrics.sideNavWidth});
-      padding-top: ${({ theme: { metrics } }) =>
-        `calc(${metrics.headerOverlayHeight} + ${metrics.headerHeight})`};
+      padding-top: ${({ theme: { metrics } }) => `calc(${metrics.headerOverlayHeight} + ${metrics.headerHeight})`};
 
       .row {
         margin-right: 0;
@@ -69,7 +68,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .form-group {
-      margin-bottom: 0.5rem;
+      margin-bottom: ${rem('8px')};
 
       .form-control {
         border-radius: 0;
@@ -80,4 +79,4 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   }
-`;
+`

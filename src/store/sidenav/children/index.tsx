@@ -1,5 +1,5 @@
 import React from 'react'
-import { SideNavTitle, SideNavSubTitle } from './styles'
+import { SideNavTitle, SideNavSubTitle, SideNavDashBoardLink } from './styles'
 
 export const sideNavChildren = {
   login() {
@@ -19,6 +19,9 @@ export const sideNavChildren = {
     return (
       <>
         <SideNavTitle>Hi, Max</SideNavTitle>
+        <SideNavDashBoardLink href="/dashboard">Home</SideNavDashBoardLink>
+        <SideNavDashBoardLink href="/search">Search</SideNavDashBoardLink>
+        <SideNavDashBoardLink href="/library">Your Library</SideNavDashBoardLink>
         <SideNavSubTitle>Your Playlists</SideNavSubTitle>
       </>
     )

@@ -16,7 +16,6 @@ const Dashboard: FC = () => {
   }, [])
 
   useEffect(() => {
-    console.log('playlists', playlists)
     if (playlists)
       setSideNavModel({ title: 'dashboard', activeChild: 'dashboard', playlists: playlists.items })
   }, [playlists])

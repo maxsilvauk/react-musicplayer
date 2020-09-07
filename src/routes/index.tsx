@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import NavBar from '~components/Header'
 import { SideNav } from '~components/SideNav'
 import Login from '~pages/login'
@@ -9,6 +9,7 @@ import { PrivateRoute } from '~root/routes/privateRoute'
 export const Routes = () => {
   return (
     <Router>
+      <Redirect to="/login" />
       <NavBar />
       <SideNav />
       <Switch>
