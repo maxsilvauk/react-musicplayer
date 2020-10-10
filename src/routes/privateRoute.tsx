@@ -11,6 +11,9 @@ export interface RedirectState {
 export const PrivateRoute: FC<RouteProps> = ({ children, ...rest }) => {
   const { isAuthenticated } = useStoreState(({ user }) => user)
 
+
+  console.log('location', location)
+
   return (
     <Route
       {...rest}

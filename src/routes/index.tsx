@@ -9,7 +9,6 @@ import { PrivateRoute } from '~root/routes/privateRoute'
 export const Routes = () => {
   return (
     <Router>
-      <Redirect to="/login" />
       <NavBar />
       <SideNav />
       <Switch>

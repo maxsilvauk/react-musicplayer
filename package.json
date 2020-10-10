@@ -3,9 +3,8 @@
   "name": "@silvadigital/react-spotify-player",
   "version": "1.0.0",
   "private": true,
-  "description": "React Spotify Player",
-  "author": "Maximillian Silva",
-  "homepage": "https://bitbucket.org/pushologiesdev/push_monorepo#readme",
+  "description": "React spotify player",
+  "author": "silvadigital ltd",
   "license": "ISC",
   "repository": {
     "type": "git",

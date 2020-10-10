@@ -17,13 +17,9 @@ const Login: FC = () => {
   }, [])
 
   useEffect(() => {
-    if (isAuthenticated)
-      history.replace(state?.from || '/dashboard')
-  }, [isAuthenticated])
-
-  useEffect(() => {
     setSideNavModel({ title: 'login', activeChild: 'login' })
     const token = queryString.parse(window.location.search).access_token
+    console.log('query string', queryString.parse(window.location.search).access_token);
     if (token !== undefined) {
       const authData = {
         accessToken: token,
@@ -34,6 +30,10 @@ const Login: FC = () => {
       history.replace(state?.from || '/dashboard')
     }
   }, [])
+
+  useEffect(() => {
+    if (isAuthenticated) history.replace(state?.from || '/dashboard')
+  }, [isAuthenticated])
 
   return (
     <Container id="page-container">
